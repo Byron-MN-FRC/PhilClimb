@@ -48,7 +48,9 @@ private double BarX;
 private double BarY;
 private double BisepActuater;
 private double ElbowAngle;
+private double ElbowTarget;
 private double ShoulderAngle;
+private double ShoulderTarget;
 private double ForearmActuater;
 
     /**
@@ -107,13 +109,28 @@ leftForearm = new WPI_TalonSRX(7);
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-    public void leftArmMath() {
+    public void leftArmMath(boolean elbowAngleHit, boolean shoulderAngleHit) {
         ElbowAngle = elbowPtLeft.get();
         ShoulderAngle = shoulderPtLeft.get();
-        ForearmActuater = Math.pow((BarX*BarX)+(BarY*BarY),.5);
-        BisepActuater = (Constants.halfSpoolDistance*Constants.halfSpoolDistance)+(Constants.bicepToBase*Constants.bicepToBase);
-
+        // Calculates the angle that the elbow needs to be at
+        ElbowTarget = Math.acos(((Constants.bicepLenght*Constants.bicepLenght)+(Constants.forearmLength*Constants.forearmLength)-(BarY*BarY)-(BarX*BarX))/(2*Constants.forearmLength*Constants.bicepLenght));
+        // Calculates the angle that the shoulder needs to be at
+        ShoulderTarget = 180-(Math.asin((Math.sin(ElbowTarget)*Constants.forearmLength)/(Math.pow(BarX*BarX*BarY*BarY, .5))))-Math.atan(BarY/BarX);
+        // Checks if the Elbow target has been hit
+        if (ElbowAngle == ElbowTarget) {
+            elbowAngleHit = true;
         }
+        else{
+            elbowAngleHit = false;
+        }
+        //Checks if the Shoulder target has been hit
+        if (ShoulderAngle == ShoulderTarget) {
+            shoulderAngleHit = true;
+        }
+        else{
+            shoulderAngleHit = false;
+        }
+    }
 
 }
 

@@ -29,10 +29,8 @@ public class Constants {
     * }
     */ 
     //All measurements in inches
-    public static final int spoolDistance = 30;
-    public static final int halfSpoolDistance = spoolDistance/2;
+
     public static final int bicepLenght = 28;
     public static final int forearmLength = 30;
-    public static final int bicepToBase = 15;
 }
 
