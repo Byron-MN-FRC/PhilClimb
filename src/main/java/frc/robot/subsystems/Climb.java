@@ -52,7 +52,8 @@ private double ElbowTarget;
 private double ShoulderAngle;
 private double ShoulderTarget;
 private double ForearmActuater;
-
+public boolean shoulderAngleHit;
+public boolean elbowAngleHit;
     /**
     *
     */
@@ -109,7 +110,7 @@ leftForearm = new WPI_TalonSRX(7);
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-    public void leftArmMath(boolean elbowAngleHit, boolean shoulderAngleHit) {
+    public void leftArmMath() {
         ElbowAngle = elbowPtLeft.get();
         ShoulderAngle = shoulderPtLeft.get();
         // Calculates the angle that the elbow needs to be at
@@ -131,6 +132,32 @@ leftForearm = new WPI_TalonSRX(7);
             shoulderAngleHit = false;
         }
     }
+    public void startLeftElbow(double speed) {
+        leftBicep.set(speed);
+    }
+    public void startLeftShoulder(double speed) {
+        leftForearm.set(speed);
+    }
+    public void stopLeftElbow() {
+        leftBicep.stopMotor();
+    }
+    public void stopLeftShoulder() {
+        leftForearm.stopMotor();
+    }
+    // public void climbtil() {
+    //     if (ElbowAngle != ElbowTarget) {
+    //         startLeftElbow();
+    //     }
+    //     else {
+    //         stopLeftElbow();
+    //     }
+    //     if (ShoulderAngle != ShoulderTarget) {
+    //         startLeftShoulder();
+    //     }
+    //     else {
+    //         stopLeftShoulder();
+    //     }
+    // }
 
 }
 
