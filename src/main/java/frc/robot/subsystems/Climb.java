@@ -118,7 +118,7 @@ rightForearm = new WPI_TalonSRX(9);
     }
 
     @Override
-    public void simulationPeriodic() {
+    public void simulationPeriodicss() {
         // This method will be called once per scheduler run when in simulation
 
     }
