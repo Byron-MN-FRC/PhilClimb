@@ -1,0 +1,48 @@
+{
+  "HALProvider": {
+    "DIO": {
+      "window": {
+        "visible": true
+      }
+    },
+    "Other Devices": {
+      "DutyCycleEncoder[0]": {
+        "header": {
+          "open": true
+        }
+      },
+      "Talon FX[6]": {
+        "header": {
+          "open": true
+        }
+      },
+      "Talon SRX[7]": {
+        "header": {
+          "open": true
+        }
+      }
+    }
+  },
+  "NTProvider": {
+    "types": {
+      "/FMSInfo": "FMSInfo",
+      "/LiveWindow/Climb/LeftElbowLimitSwitch": "Digital Input",
+      "/LiveWindow/Climb/LeftShoulderLimitSwitch": "Digital Input",
+      "/LiveWindow/Climb/RightElbowLimitSwitch": "Digital Input",
+      "/LiveWindow/Climb/RightHandLimitSwitch": "Digital Input",
+      "/LiveWindow/Climb/RightShoulderLimitSwitch": "Digital Input",
+      "/LiveWindow/Climb/leftHandLimitSwitch": "Digital Input",
+      "/LiveWindow/DriveTrain": "Subsystem",
+      "/LiveWindow/DriveTrain/differentialDrive": "DifferentialDrive",
+      "/LiveWindow/Ungrouped/DigitalInput[0]": "Digital Input",
+      "/LiveWindow/Ungrouped/DigitalInput[1]": "Digital Input",
+      "/LiveWindow/Ungrouped/Scheduler": "Scheduler",
+      "/SmartDashboard/Auto Mode": "String Chooser",
+      "/SmartDashboard/Autonomous Command": "Command",
+      "/SmartDashboard/btnClimb": "Command",
+      "/SmartDashboard/btnZeroElbow": "Command",
+      "/SmartDashboard/btnZeroShoulder": "Command",
+      "/SmartDashboard/runWithJoystick": "Command"
+    }
+  }
+}
